@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <context:component-scan base-package="com.example.ssm.rental"/>
+
+    <!-- 一个配置节解决映射器和适配器的配置注解配置 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+    <!-- 配置视图解析器
+        进行jsp解析，默认使用jstl标签，classpath下得有jstl的包
+    -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--配置前缀和后缀，也可以不指定-->
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--&lt;!&ndash;文件上传&ndash;&gt;-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--设置上传最大尺寸为50MB-->
+        <property name="maxUploadSizePerFile" value="52428800"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="resolveLazily" value="true"/>
+    </bean>
+
+
+    <!-- 静态资源映射 -->
+    <mvc:resources mapping="/assets/**" location="/assets/"></mvc:resources>
+
+    <mvc:interceptors>
+        <!--     管理员拦截器   -->
+        <!--   用户管理需要管理员权限     -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/user"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/user/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+
+        <!--   新闻管理需要管理员权限     -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/news"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/news/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+
+        <!--   反馈回复需要管理员权限     -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/feedback/reply/submit"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+
+        <!--   房屋审核需要管理员权限     -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/house/checkPass"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/house/checkReject"/>
+            <bean class="com.example.ssm.rental.common.interceptor.AdminInterceptor"/>
+        </mvc:interceptor>
+
+
+        <!--     房子管理需要房东以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/house"/>
+            <bean class="com.example.ssm.rental.common.interceptor.OwnerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/house/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.OwnerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     订单管理需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/order"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/order/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     订单管理需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/order"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/order/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     收藏管理需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/mark"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/mark/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     反馈管理需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/feedback"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/feedback/delete"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/feedback/submit"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     个人信息需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/profile"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/profile/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     密码修改需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/password"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/password/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--     我的家需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/home"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--  订单操作需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/order/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+        <!--  收藏操作需要租客以上权限   -->
+        <mvc:interceptor>
+            <mvc:mapping path="/mark/**"/>
+            <bean class="com.example.ssm.rental.common.interceptor.CustomerInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+    <!--  定时任务  -->
+    <task:annotation-driven/>
+
+</beans>
