@@ -107,7 +107,7 @@
 - 新闻表
 ![新闻表](img/t6.png)
 - ER 图
-![新闻表](img/er.png)
+![ER 图](img/er.png)
 - 流程图
 待补充
 
@@ -115,12 +115,10 @@
 
 #### 2、代码结构
 项目结构是SSM+JSP，可以帮忙改造成springboot的
-![新闻表](img/code.png)
+![代码结构](img/code.png)
 
 
 ## 六、项目截图
-
-![代码结构](img/code.png)
 ![1-首页1.png](img/1-首页1.png)
 ![2-首页2.png](img/2-首页2.png)
 ![3-首页3.png](img/3-首页3.png)
