@@ -1,6 +1,6 @@
 - 基于SSM+JSP+Bootstrap的房屋租赁系统，包含管理员、房东和租客三种角色。
-- 预览地址：待部署
-- 详细介绍地址：https://liuyanzhao.com/shop/verio.html
+- 预览地址：[https://verio.liuyanzhao.com](https://verio.liuyanzhao.com)
+- 详细介绍地址：[https://liuyanzhao.com/shop/verio.html](https://liuyanzhao.com/shop/verio.html)
 
 
 
@@ -80,6 +80,8 @@
 - 12、包含新闻模块，管理员可以发布新闻咨询
 - 13、租客可以收藏自己喜欢的房子
 - 14、项目数据库表只有6张，很简单，不用怕复杂冗余的表
+- 15、定时任务，定时查询合同到期的订单，更新订单状态为已退租，更新房屋状态为可租
+
 
 
 
@@ -107,9 +109,9 @@
 - 新闻表
 ![新闻表](img/t6.png)
 - ER 图
-![新闻表](img/er.png)
+![ER](img/er.png)
 - 流程图
-待补充
+待补充, 包括ER图，手绘版本联系博主
 
 
 
