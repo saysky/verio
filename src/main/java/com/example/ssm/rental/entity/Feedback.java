@@ -48,5 +48,7 @@ public class Feedback extends BaseEntity {
      * 状态：0待处理，1已处理
      */
     private Integer status;
+
+
 }
 

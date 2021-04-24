@@ -18,7 +18,7 @@ import java.util.Date;
 public class Order extends BaseEntity {
 
     /**
-     * 订单状态：-2待签合同，-1待付款，0生效中，1已到期，-3租客已取消
+     * 订单状态：-2待签合同，-1待付款，0生效中，1已到期，-3已取消，2申请退租，3申请退租不通过
      */
     private Integer status;
 
