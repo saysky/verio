@@ -1,3 +1,5 @@
+最新消息 2022 最新租房系统地址：[2022 基于SpringBoot的房屋租赁平台 房屋展示平台 留学生房屋租赁平台](https://github.com/saysky/HouseKey)
+<hr/>
 - 基于SSM+JSP+Bootstrap的房屋租赁系统，包含管理员、房东和租客三种角色。
 - 预览地址：[http://verio.liuyanzhao.com](http://verio.liuyanzhao.com)
 - 详细介绍地址：[https://liuyanzhao.com/shop/verio.html](https://liuyanzhao.com/shop/verio.html)
@@ -7,6 +9,7 @@
     - 同款SpringBoot版本地址：[https://github.com/saysky/verio-boot](https://github.com/saysky/verio-boot)
     
 - 另一个租房系统地址：[SpringBoot 房屋租赁系统Manland3.0﻿](https://liuyanzhao.com/shop/manland.html)
+
 ## 一、获取代码
 - 需要完整代码联系博主，微信847064370
 
