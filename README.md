@@ -1,10 +1,12 @@
 最新消息，博主已开通B站账号：[Java刘哥](https://space.bilibili.com/160340478)，欢迎关注，分享自己原创免费Java实战课程、各种框架实战和技巧、以及公司项目经验
-<hr/>
-## 博主开发的其他租房或房屋交易项目全部在这里
-**[https://liuyanzhao.com/shop.html?k=房屋](https://liuyanzhao.com/shop.html?k=房屋)**  
-- -------------------------------------------------------------------------------
-感谢支持正版项目的朋友
-- 最新消息，2022年4月23 verio迎来重大更新 [2022年4月最新基于SpringBoot/SSM的房屋租赁系统 Rello](https://github.com/saysky/rello-ssm)
+<hr/> 
+## 博主开发的其他租房或房屋交易项目全部在这里 <br/>
+** [https://liuyanzhao.com/shop.html?k=房屋](https://liuyanzhao.com/shop.html?k=房屋) **   <br/>
+
+本项目已有原创论文：[SpringBoot/SSM 房屋租赁系统毕业论文 原创 17000字](https://liuyanzhao.com/shop/rent-paper.html) 需要的联系博主<br/>
+
+感谢支持正版项目的朋友 <br/>
+- 最新消息，2022年4月23 verio迎来重大更新 [2022年4月最新基于SpringBoot/SSM的房屋租赁系统 Rello](https://github.com/saysky/rello-ssm) 
 
 - 最新消息 2022 最新租房系统地址：[2022 基于SpringBoot的房屋租赁平台 房屋展示平台 留学生房屋租赁平台](https://github.com/saysky/HouseKey)
 - 基于SSM+JSP+Bootstrap的房屋租赁系统，包含管理员、房东和租客三种角色。
